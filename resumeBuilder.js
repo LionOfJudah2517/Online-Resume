@@ -35,20 +35,20 @@ var formattedbioPic = HTMLbioPic.replace("%data%", bio["biopic"]);
 $("#header").prepend(formattedbioPic);
 
 if(bio.skills.length > 0){
-  $("#skills").append(HTMLskillsStart);
+  $("#header").append(HTMLskillsStart);
 
   var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-  $("#header").append(formattedSkill);
+  $("#skills").append(formattedSkill);
   var formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-  $("#header").append(formattedSkill);
+  $("#skills").append(formattedSkill);
   var formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-  $("#header").append(formattedSkill);
-  var formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-  $("#header").append(formattedSkill);
-  var formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
-  $("#header").append(formattedSkill);
-  var formattedSkill = HTMLskills.replace("%data%", bio.skills[5]);
-  $("#header").append(formattedSkill);
+  $("#skills").append(formattedSkill);
+  //var formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+  //$("#skills").append(formattedSkill);
+  //var formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
+  //$("#skills").append(formattedSkill);
+  //var formattedSkill = HTMLskills.replace("%data%", bio.skills[5]);
+  //$("#skills").append(formattedSkill);
 };
 
 
@@ -75,21 +75,19 @@ var education = {
  }
 ]
 };
+education.display = function(){
 
-function displayEducation(){
-for (schools in education) {
+education.schools.forEach(function(school){
   $("#education").append(HTMLschoolStart);
-var formattedschoolName = HTMLschoolName.replace("%data%", education.schools["name"]);
-var formattedschoolDates = HTMLschoolDates.replace("%data%", education.schools["dates"]);
-var formattedschoolLocation = HTMLschoolLocation.replace("%data%", education.schools["location"]);
-var formattedschoolMajor = HTMLschoolMajor.replace("%data%", education.schools["major"]);
+var formattedschoolName = HTMLschoolName.replace("%data%", school.name);
+var formattedschoolDates = HTMLschoolDates.replace("%data%", school.dates);
+var formattedschoolLocation = HTMLschoolLocation.replace("%data%", school.location);
+var formattedschoolMajor = HTMLschoolMajor.replace("%data%", school.major);
 var formattedschoolTitle = formattedschoolName + formattedschoolDates + formattedschoolLocation + formattedschoolMajor;
 $(".education-entry:last").append(formattedschoolTitle);
-
-  }
-};
-displayEducation();
-
+});
+  };
+education.display();
 
 var work = {
 "jobs" : {
@@ -97,7 +95,7 @@ var work = {
 "location" : "Brockton, MA",
 "title" : "Resident Life Administrator",
 "dates" : "May 2012 - Current",
-"description" : "Responsible for creating and innovating curriculum amongst eight of our locations. Maintaining statistics across the centers with regards to retention rates, etc. Oversee our admissions processes and provide accountability for the admissions, academics and resident life supervisors at each campus. Help implement GED/HiSet classes or process to educate residents to overcome educational obstacles. Contribitued author of two books 'Changed Lives Volume 3' and 'Changed Lives Volume 4'. Write blogs for the website and also helped with developing, creating additional content, and editing."
+"description" : "Responsible for creating and innovating curriculum amongst eight of our locations. Maintaining statistics across the centers with regards to retention rates, etc. Oversee our admissions processes and provide accountability for the admissions, academics and resident life supervisors at each campus. Help implement GED/HiSet classes or process to educate residents to overcome educational obstacles. Contribiting author of two books 'Changed Lives Volume 3' and 'Changed Lives Volume 4'. Write blogs for the website and also helped with developing, creating additional content, and editing."
   }
 };
 function displayWork(){

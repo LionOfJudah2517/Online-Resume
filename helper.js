@@ -141,8 +141,11 @@ function initializeMap() {
     // the locations array. Note that forEach is used for array iteration
     // as described in the Udacity FEND Style Guide:
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
-    work.jobs.forEach(function(job){
-      locations.push(job.location);
+    var myArray = [1,2,3,4,5];
+
+    myArray.forEach(function(item) {
+      console.log(item); // Logs '1', '2', '3', '4', '5'
+
     });
 
     return locations;
